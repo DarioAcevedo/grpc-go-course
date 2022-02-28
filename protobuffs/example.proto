@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+import "protobuffs/date.proto";
+
+message Person {
+   int age = 1;
+   string first_name = 2;
+   string last_name = 3;
+   bytes small_picture = 4;
+   bool profile_verified = 5;
+   float height = 6;
+
+   repeated string phone_numbers = 7;
+
+   // This enum definition if for a field that can be some of this values:
+   enum EyeColor {
+        // The first value is the default value and needs to have the tag 0
+        UNKNOWN = 0;
+        GREEN = 1;
+        BLUE = 2;
+        BROWN = 3;
+   }
+
+   EyeColor eye_color = 8;
+   
+
+   // Persons birth date
+   Date birth_date = 9;
+
+   message Address {
+        string street_address = 1;
+        string city = 2;
+        string state = 3;
+        string zip = 4;
+   }
+
+   repeated Address address = 10;
+
+}
+
+
+
